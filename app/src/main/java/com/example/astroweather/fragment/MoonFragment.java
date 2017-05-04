@@ -119,6 +119,7 @@ public class MoonFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+        moonPresenter.onDestroy();
         mListener = null;
     }
 

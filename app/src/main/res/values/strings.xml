@@ -16,4 +16,7 @@
     <string name="phase">Faza:\u0020</string>
     <string name="synodic_month">Miesiąc synodyczny</string>
     <string name="day">Dzień:\u0020</string>
+    <string name="longtitude">Długość geograficzna</string>
+    <string name="latitude">Szerokość geograficzna</string>
+    <string name="save">Zapisz</string>
 </resources>

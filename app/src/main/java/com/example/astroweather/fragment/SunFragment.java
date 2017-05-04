@@ -112,6 +112,7 @@ public class SunFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+        sunPresenter.onDestroy();
         mListener = null;
     }
 

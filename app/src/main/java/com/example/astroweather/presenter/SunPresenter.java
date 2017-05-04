@@ -4,6 +4,7 @@ import com.astrocalculator.AstroCalculator;
 import com.example.astroweather.fragment.MoonFragment;
 import com.example.astroweather.fragment.SunFragment;
 import com.example.astroweather.settings.ApplicationSettings;
+import com.example.astroweather.settings.SettingsUpdatedCallback;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -12,15 +13,21 @@ import java.util.Locale;
  * Created by Piotr Borczyk on 04.05.2017.
  */
 
-public class SunPresenter implements Presenter<SunFragment> {
+public class SunPresenter implements Presenter<SunFragment>, SettingsUpdatedCallback {
 
+    private ApplicationSettings applicationSettings;
     private SunFragment view;
     private AstroCalculator astroCalculator;
     private AstroCalculator.SunInfo sunInfo;
 
     @Override
     public void onCreate() {
-        ApplicationSettings applicationSettings = ApplicationSettings.getInstance();
+        applicationSettings = ApplicationSettings.getInstance();
+        updateView();
+        applicationSettings.registerForUpdates(this);
+    }
+
+    private void updateView() {
         astroCalculator = applicationSettings.getAstroCalculator();
         sunInfo = astroCalculator.getSunInfo();
 
@@ -35,5 +42,14 @@ public class SunPresenter implements Presenter<SunFragment> {
     @Override
     public void attachView(SunFragment view) {
         this.view = view;
+    }
+
+    @Override
+    public void onSettingsUpdate() {
+        updateView();
+    }
+
+    public void onDestroy() {
+        applicationSettings.unregisterForUpdates(this);
     }
 }
