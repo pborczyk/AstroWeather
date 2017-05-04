@@ -4,12 +4,12 @@
     android:layout_height="match_parent"
     tools:context="com.example.astroweather.fragment.DetailsFragment">
 
-    <TextView
+    <TextClock
         android:id="@+id/current_time"
-        android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
+        android:format24Hour="hh:mm:ss"
+        android:format12Hour="hh:mm:ss"
         android:layout_centerHorizontal="true"/>
 
     <TextView
