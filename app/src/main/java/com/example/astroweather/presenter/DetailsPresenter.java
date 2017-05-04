@@ -34,7 +34,8 @@ public class DetailsPresenter implements Presenter<DetailsFragment>, SettingsUpd
 
     private void updateView() {
         AstroCalculator astroCalculator = applicationSettings.getAstroCalculator();
-        view.currentLocation.setText(astroCalculator.getLocation().toString());
+        view.currentLatitude.setText(String.valueOf(astroCalculator.getLocation().getLatitude()));
+        view.currentLongtitude.setText(String.valueOf(astroCalculator.getLocation().getLongitude()));
     }
 
     public void onDestroy() {

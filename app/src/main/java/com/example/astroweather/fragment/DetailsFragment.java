@@ -32,8 +32,11 @@ public class DetailsFragment extends Fragment {
     @BindView(R.id.current_time)
     public TextView currentTime;
 
-    @BindView(R.id.current_location)
-    public TextView currentLocation;
+    @BindView(R.id.current_latitude)
+    public TextView currentLatitude;
+
+    @BindView(R.id.current_longtitude)
+    public TextView currentLongtitude;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
