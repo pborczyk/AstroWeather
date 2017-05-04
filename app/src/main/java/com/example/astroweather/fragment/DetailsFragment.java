@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.astroweather.R;
+import com.example.astroweather.presenter.DetailsPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +38,8 @@ public class DetailsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private DetailsPresenter presenter;
 
     private OnFragmentInteractionListener mListener;
 
@@ -69,6 +72,9 @@ public class DetailsFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        presenter = new DetailsPresenter();
+        presenter.attachView(this);
     }
 
     @Override
@@ -77,6 +83,7 @@ public class DetailsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_details, container, false);
         ButterKnife.bind(this, view);
+        presenter.onCreate();
         return view;
     }
 
@@ -90,12 +97,12 @@ public class DetailsFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+//        if (context instanceof OnFragmentInteractionListener) {
+//            mListener = (OnFragmentInteractionListener) context;
+//        } else {
+//            throw new RuntimeException(context.toString()
+//                    + " must implement OnFragmentInteractionListener");
+//        }
     }
 
     @Override
