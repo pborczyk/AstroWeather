@@ -38,7 +38,7 @@
                         android:text="@string/time" />
 
                     <TextView
-                        android:id="@+id/sunset_time"
+                        android:id="@+id/sunrise_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -92,7 +92,7 @@
                         android:text="@string/time" />
 
                     <TextView
-                        android:id="@+id/sunrise_time"
+                        android:id="@+id/sunset_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
