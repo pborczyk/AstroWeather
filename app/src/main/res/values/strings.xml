@@ -5,17 +5,15 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="rise">Wschód</string>
     <string name="sunset">Zachód</string>
-    <string name="time">Czas</string>
-    <string name="azimuth">Azymut</string>
+    <string name="time">Czas:\u0020</string>
+    <string name="azimuth">Azymut:\u0020</string>
     <string name="civil_sunset">Zachód cywilny</string>
     <string name="civil_sunrise">Wschód cywilny</string>
-    <string name="new_moon">Nów</string>
-    <string name="full_moon">Pełnia</string>
-    <string name="nearest_new_moon">Najbliższy nów</string>
-    <string name="nearest_full_moon">Najbliższa pełnia</string>
+    <string name="nearest_new_moon">Najbliższy nów:\u0020</string>
+    <string name="nearest_full_moon">Najbliższa pełnia:\u0020</string>
     <string name="new_moon_and_full_moon">Nów i pełnia</string>
     <string name="moon_phase">Faza księżyca</string>
-    <string name="phase">Faza</string>
+    <string name="phase">Faza:\u0020</string>
     <string name="synodic_month">Miesiąc synodyczny</string>
-    <string name="day">Dzień</string>
+    <string name="day">Dzień:\u0020</string>
 </resources>
