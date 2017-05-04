@@ -20,6 +20,8 @@
     <string name="latitude">Szerokość geograficzna</string>
     <string name="save">Zapisz</string>
     <string name="action_settings">Ustawienia</string>
+    <string name="sun">Słońce</string>
+    <string name="moon">Księżyc</string>
 
     <string-array name="interval_values">
         <item>SECOND</item>
