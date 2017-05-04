@@ -17,7 +17,7 @@ public class MoonPresenter implements Presenter<MoonFragment> {
     @Override
     public void onCreate() {
         ApplicationSettings applicationSettings = ApplicationSettings.getInstance();
-        astroCalculator = new AstroCalculator(applicationSettings.getDateTime(), applicationSettings.getLocation());
+        astroCalculator = applicationSettings.getAstroCalculator();
         moonInfo = astroCalculator.getMoonInfo();
 
         view.moonPhase.setText(String.valueOf(moonInfo.getIllumination()));

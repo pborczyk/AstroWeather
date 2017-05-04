@@ -21,7 +21,7 @@ public class SunPresenter implements Presenter<SunFragment> {
     @Override
     public void onCreate() {
         ApplicationSettings applicationSettings = ApplicationSettings.getInstance();
-        astroCalculator = new AstroCalculator(applicationSettings.getDateTime(), applicationSettings.getLocation());
+        astroCalculator = applicationSettings.getAstroCalculator();
         sunInfo = astroCalculator.getSunInfo();
 
         view.sunriseTime.setText(sunInfo.getSunrise().toString());
