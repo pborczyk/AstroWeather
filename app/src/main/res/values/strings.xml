@@ -19,4 +19,13 @@
     <string name="longtitude">Długość geograficzna</string>
     <string name="latitude">Szerokość geograficzna</string>
     <string name="save">Zapisz</string>
+    <string name="action_settings">Ustawienia</string>
+
+    <string-array name="interval_values">
+        <item>SECOND</item>
+        <item>FIVE_SECONDS</item>
+        <item>THIRTY_SECONDS</item>
+        <item>MINUTE</item>
+        <item>FIFTEEN_MINUTES</item>
+    </string-array>
 </resources>
