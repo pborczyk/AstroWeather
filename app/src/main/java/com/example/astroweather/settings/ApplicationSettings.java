@@ -24,6 +24,7 @@ public class ApplicationSettings {
     private AstroCalculator astroCalculator;
 
     final Handler handler = new Handler();
+    Runnable settingsUpdater;
     private int updateInterval = 5000;
     private Set<SettingsUpdatedCallback> subscribers = new HashSet<>();
 
@@ -38,13 +39,14 @@ public class ApplicationSettings {
         astroCalculator = new AstroCalculator(getAstroDateTime(), location);
 
 
-        Runnable settingsUpdater = new Runnable() {
+        settingsUpdater = new Runnable() {
             @Override
             public void run() {
                 try {
                     update();
                     notifySubscribers();
                 }catch (Exception e) {
+                    e.printStackTrace();
                     throw new RuntimeException();
 
                 } finally {
@@ -53,7 +55,7 @@ public class ApplicationSettings {
 
             }
         };
-        handler.postDelayed(settingsUpdater, updateInterval);
+        handler.post(settingsUpdater);
     }
 
     private void notifySubscribers() {
@@ -70,10 +72,12 @@ public class ApplicationSettings {
 
     public void setLocation(AstroCalculator.Location location) {
         this.location = location;
+        handler.post(settingsUpdater);
     }
 
     public void setUpdateInterval(int updateInterval) {
         this.updateInterval = updateInterval;
+        handler.post(settingsUpdater);
     }
 
     public void update() {

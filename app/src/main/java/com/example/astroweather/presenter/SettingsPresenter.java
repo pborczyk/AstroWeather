@@ -27,6 +27,9 @@ public class SettingsPresenter implements Presenter<SettingsActivity> {
     public void setSettingsValues() {
         double longtitue = Double.parseDouble(view.longtitudeInput.getText().toString());
         double latitude = Double.parseDouble(view.latitudeInput.getText().toString());
+        if((latitude >90 || latitude < -90)  || (longtitue < 0 || longtitue > 180) ) {
+            return;
+        }
         String timeInterval = (String) view.updateIntervalSpinner.getSelectedItem();
         ApplicationSettings.getInstance().setUpdateInterval(UpdateTimeIntervalValues.valueOf(timeInterval).seconds);
         ApplicationSettings.getInstance().setLocation(new AstroCalculator.Location(latitude, longtitue));
