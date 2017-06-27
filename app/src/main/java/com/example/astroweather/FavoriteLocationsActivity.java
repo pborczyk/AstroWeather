@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
 
 public class FavoriteLocationsActivity extends AppCompatActivity {
 
-    private static final String filename = "myfile";
+    private static final String filename = "fav_locations";
 
 
     @BindView(R.id.places_list)
