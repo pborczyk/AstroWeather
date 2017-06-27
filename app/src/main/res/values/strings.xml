@@ -30,4 +30,5 @@
         <item>MINUTE</item>
         <item>FIFTEEN_MINUTES</item>
     </string-array>
+    <string name="title_activity_favorite_locations">FavoriteLocationsActivity</string>
 </resources>
