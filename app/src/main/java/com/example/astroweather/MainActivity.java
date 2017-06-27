@@ -56,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
 
+            case R.id.action_fav:
+                Intent favIntent = new Intent(this, FavoriteLocationsActivity.class);
+                startActivity(favIntent);
+                return true;
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
