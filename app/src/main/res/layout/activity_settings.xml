@@ -79,4 +79,10 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/update_button"
+        android:text="@string/update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

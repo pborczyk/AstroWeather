@@ -90,4 +90,8 @@ public class SettingsPresenter implements Presenter<SettingsActivity> {
             e.printStackTrace();
         }
     }
+
+    public void updateWeather() {
+        ApplicationSettings.getInstance().triggerWeatherUpdate(context);
+    }
 }

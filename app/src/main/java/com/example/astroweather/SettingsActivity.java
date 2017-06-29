@@ -37,6 +37,9 @@ public class SettingsActivity extends AppCompatActivity {
     @BindView(R.id.save_location_button)
     public Button saveLocationButton;
 
+    @BindView(R.id.update_button)
+    public Button updateButton;
+
     private SettingsPresenter presenter;
 
     @Override
@@ -78,6 +81,13 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 presenter.saveLocationFromInput();
+            }
+        });
+
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.updateWeather();
             }
         });
     }

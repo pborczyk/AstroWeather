@@ -35,4 +35,7 @@
     <string name="update_interval">Interwał odświeżania</string>
     <string name="location_input">Wpisz lokacje</string>
     <string name="set_location">Ustaw lokacje</string>
+    <string name="min_temp">Minimalna temperatura</string>
+    <string name="max_temp">Maksymalna temperatura</string>
+    <string name="update">Aktualizuj</string>
 </resources>

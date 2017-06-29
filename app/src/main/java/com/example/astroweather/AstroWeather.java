@@ -2,6 +2,7 @@ package com.example.astroweather;
 
 import android.app.Application;
 
+import com.astrocalculator.AstroCalculator;
 import com.example.astroweather.settings.ApplicationSettings;
 
 /**
@@ -13,7 +14,14 @@ public class AstroWeather extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        ApplicationSettings.getInstance().setFavoriteLocation(ApplicationSettings.readFavoriteLocation(getApplicationContext()));
-        ApplicationSettings.getInstance().setWeatherData(ApplicationSettings.readWeatherFromFile(getApplicationContext()));
+        ApplicationSettings instance = ApplicationSettings.getInstance();
+        instance.setFavoriteLocation(ApplicationSettings.readFavoriteLocation(getApplicationContext()));
+        instance.setWeatherData(ApplicationSettings.readWeatherFromFile(getApplicationContext()));
+        if (instance.getWeatherData() != null) {
+            double longtitude = Double.parseDouble(instance.getWeatherData().query.results.channel.item._long);
+            double latitude = Double.parseDouble(instance.getWeatherData().query.results.channel.item.lat);
+            instance.setLocation(new AstroCalculator.Location(latitude, longtitude));
+
+        }
     }
 }

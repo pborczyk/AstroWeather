@@ -55,7 +55,7 @@ public class BasicConditions extends Fragment {
         View view = inflater.inflate(R.layout.fragment_basic_conditions, container, false);
         ButterKnife.bind(this, view);
 
-        presenter = new BasicConditionsPresenter();
+        presenter = new BasicConditionsPresenter(getActivity());
         presenter.attachView(this);
         presenter.onCreate();
 

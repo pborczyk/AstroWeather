@@ -18,7 +18,10 @@ public class ForecastTilePresenter implements Presenter<ForecastViewHolder> {
 
     @Override
     public void onCreate() {
-
+        view.day.setText(forecast.day);
+        view.description.setText(forecast.text);
+        view.maxTemp.setText(forecast.high);
+        view.minTemp.setText(forecast.low);
     }
 
     @Override

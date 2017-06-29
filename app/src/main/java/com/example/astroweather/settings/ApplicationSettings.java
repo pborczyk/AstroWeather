@@ -190,6 +190,12 @@ public class ApplicationSettings {
         try {
             weatherData = weatherService.getWeather(favoriteLocation.getWoeid());
             ApplicationSettings.writeWeatherToFile(context);
+            if (getWeatherData() != null) {
+                double longtitude = Double.parseDouble(getWeatherData().query.results.channel.item._long);
+                double latitude = Double.parseDouble(getWeatherData().query.results.channel.item.lat);
+                setLocation(new AstroCalculator.Location(latitude, longtitude));
+
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
