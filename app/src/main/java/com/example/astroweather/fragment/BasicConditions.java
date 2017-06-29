@@ -20,12 +20,6 @@ import butterknife.ButterKnife;
  */
 public class BasicConditions extends Fragment {
 
-    @BindView(R.id.location_name)
-    public TextView locationName;
-
-    @BindView(R.id.coords)
-    public TextView coords;
-
     @BindView(R.id.temperature)
     public TextView temperature;
 

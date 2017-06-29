@@ -29,8 +29,6 @@ public class BasicConditionsPresenter implements Presenter<BasicConditions> {
         if (weatherData != null) {
             Channel data = weatherData.query.results.channel;
             view.description.setText(data.description);
-            view.locationName.setText(data.location.country + " " + data.location.city);
-            view.coords.setText(data.item.lat + " " + data.item._long);
             view.pressure.setText(data.atmosphere.pressure);
             view.temperature.setText(data.item.condition.temp);
             view.time.setText(data.item.pubDate);
