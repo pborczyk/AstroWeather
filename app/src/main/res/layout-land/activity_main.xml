@@ -1,95 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true">
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/my_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
+        <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:orientation="horizontal">
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-            <android.support.v7.widget.CardView
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/my_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/up_up"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/fragments_margin"
-                android:layout_weight="1">
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/fragments_margin"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sun" />
+
+                            <fragment
+                                android:id="@+id/sun_fragment"
+                                android:name="com.example.astroweather.fragment.SunFragment"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/fragments_margin"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/moon" />
+
+                            <fragment
+                                android:id="@+id/moon_fragment"
+                                android:name="com.example.astroweather.fragment.MoonFragment"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/sun" />
-
                     <fragment
-                        android:id="@+id/sun_fragment"
-                        android:name="com.example.astroweather.fragment.SunFragment"
-                        android:layout_width="match_parent"
+                        android:id="@+id/basic_conditions_fragment"
+                        android:name="com.example.astroweather.fragment.BasicConditions"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
+                    <fragment
+                        android:id="@+id/additional_conditions_fragment"
+                        android:name="com.example.astroweather.fragment.AdditionalConditions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
+                    <fragment
+                        android:id="@+id/forecast_fragment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:name="com.example.astroweather.fragment.ForecastFragment"
+                        android:tag="6" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <fragment
+                android:layout_below="@id/up_up"
+                android:id="@+id/details_fragment"
+                android:name="com.example.astroweather.fragment.DetailsFragment"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/fragments_margin"
-                android:layout_weight="1">
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+        </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/moon" />
-
-                    <fragment
-                        android:id="@+id/moon_fragment"
-                        android:name="com.example.astroweather.fragment.MoonFragment"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-        </LinearLayout>
-
-        <fragment
-            android:id="@+id/details_fragment"
-            android:name="com.example.astroweather.fragment.DetailsFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

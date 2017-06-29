@@ -28,8 +28,14 @@ public class ForecastPresenter implements Presenter<ForecastFragment> {
     @Override
     public void onCreate() {
         WeatherData weatherData = ApplicationSettings.getInstance().getWeatherData();
+        int numberOfRows;
+        try {
+            numberOfRows = Integer.parseInt(view.getTag());
+        } catch (NumberFormatException e) {
+            numberOfRows = 2;
+        }
 
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(context, 2);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(context, numberOfRows);
         view.days.setLayoutManager(layoutManager);
 
 

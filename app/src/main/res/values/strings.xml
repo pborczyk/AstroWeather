@@ -30,6 +30,17 @@
         <item>MINUTE</item>
         <item>FIFTEEN_MINUTES</item>
     </string-array>
+
+    <string-array name="speed_units">
+        <item>mph</item>
+        <item>kmh</item>
+    </string-array>
+
+    <string-array name="temp_units">
+        <item>F</item>
+        <item>C</item>
+    </string-array>
+
     <string name="title_activity_favorite_locations">FavoriteLocationsActivity</string>
     <string name="favorites">Ulubione:</string>
     <string name="update_interval">Interwał odświeżania</string>
@@ -38,4 +49,9 @@
     <string name="min_temp">Minimalna temperatura</string>
     <string name="max_temp">Maksymalna temperatura</string>
     <string name="update">Aktualizuj</string>
+    <string name="temp_units">Jednostki temperatury</string>
+    <string name="speed_units">Jednostki prędkości</string>
+    <string name="basic_info">Podstawowe informacje</string>
+    <string name="additional_info">Dodatkowe informacje</string>
+    <string name="fore_cast">Prognoza</string>
 </resources>
