@@ -31,4 +31,8 @@
         <item>FIFTEEN_MINUTES</item>
     </string-array>
     <string name="title_activity_favorite_locations">FavoriteLocationsActivity</string>
+    <string name="favorites">Ulubione:</string>
+    <string name="update_interval">Interwał odświeżania</string>
+    <string name="location_input">Wpisz lokacje</string>
+    <string name="set_location">Ustaw lokacje</string>
 </resources>

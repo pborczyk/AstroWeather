@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.astroweather.R;
+import com.example.astroweather.api.pojo.weather.Forecast;
+import com.example.astroweather.presenter.ForecastPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,6 +23,8 @@ public class ForecastFragment extends Fragment {
     @BindView(R.id.days)
     public RecyclerView days;
 
+    private ForecastPresenter presenter;
+
     public ForecastFragment() {
         // Required empty public constructor
     }
@@ -32,6 +36,11 @@ public class ForecastFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_forecast, container, false);
         ButterKnife.bind(this, view);
+
+        presenter = new ForecastPresenter(getActivity());
+        presenter.attachView(this);
+        presenter.onCreate();
+
         return view;
     }
 

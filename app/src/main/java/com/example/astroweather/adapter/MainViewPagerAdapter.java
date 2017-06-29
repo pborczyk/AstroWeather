@@ -4,6 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.astroweather.fragment.AdditionalConditions;
+import com.example.astroweather.fragment.BasicConditions;
+import com.example.astroweather.fragment.ForecastFragment;
 import com.example.astroweather.fragment.MoonFragment;
 import com.example.astroweather.fragment.SunFragment;
 
@@ -26,6 +29,15 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 return MoonFragment.newInstance("", "");
 
+            case 2:
+                return new BasicConditions();
+
+            case 3:
+                return new AdditionalConditions();
+
+            case 4:
+                return new ForecastFragment();
+
             default:
                 return null;
         }
@@ -33,7 +45,7 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return 5;
     }
 
     @Override
@@ -44,6 +56,15 @@ public class MainViewPagerAdapter extends FragmentPagerAdapter {
 
             case 1:
                 return "Księżyc";
+
+            case 2:
+                return "Podstawowe informacje";
+
+            case 3:
+                return "Dodatkowe informacje";
+
+            case 4:
+                return "Prognoza";
 
             default:
                 return super.getPageTitle(position);

@@ -13,6 +13,7 @@ import android.widget.EditText;
 import com.example.astroweather.api.WeatherService;
 import com.example.astroweather.locations.Location;
 import com.example.astroweather.locations.LocationAdapter;
+import com.example.astroweather.settings.ApplicationSettings;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -26,7 +27,7 @@ import butterknife.ButterKnife;
 
 public class FavoriteLocationsActivity extends AppCompatActivity {
 
-    private static final String filename = "fav_locations";
+
 
 
     @BindView(R.id.places_list)
@@ -52,7 +53,7 @@ public class FavoriteLocationsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite_locations);
         ButterKnife.bind(this);
-        readLocations();
+        locations = ApplicationSettings.readLocations(this);
         setSupportActionBar(toolbar);
         weatherService = new WeatherService();
         adapter = new LocationAdapter(locations);
@@ -75,21 +76,12 @@ public class FavoriteLocationsActivity extends AppCompatActivity {
         });
     }
 
-    private void readLocations() {
-        try {
-            FileInputStream inputStream = openFileInput(filename);
-            ObjectInputStream is = new ObjectInputStream(inputStream);
-            locations = (List<Location>) is.readObject();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         try {
-            FileOutputStream outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+            FileOutputStream outputStream = openFileOutput(ApplicationSettings.fav_locations_filename, Context.MODE_PRIVATE);
             ObjectOutputStream os = new ObjectOutputStream(outputStream);
             os.writeObject(locations);
             os.close();

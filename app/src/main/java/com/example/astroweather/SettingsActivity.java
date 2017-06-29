@@ -19,17 +19,23 @@ import butterknife.ButterKnife;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    @BindView(R.id.longtitude_input)
-    public EditText longtitudeInput;
-
-    @BindView(R.id.latitude_input)
-    public EditText latitudeInput;
-
     @BindView(R.id.update_interval_spinner)
     public Spinner updateIntervalSpinner;
 
-    @BindView(R.id.save_button)
-    public Button saveButton;
+    @BindView(R.id.save_interval_button)
+    public Button saveIntervalButton;
+
+    @BindView(R.id.favorites_spinner)
+    public Spinner favoritesSpinner;
+
+    @BindView(R.id.save_favorite_button)
+    public Button saveFavoritesButton;
+
+    @BindView(R.id.location_input)
+    public EditText locationInput;
+
+    @BindView(R.id.save_location_button)
+    public Button saveLocationButton;
 
     private SettingsPresenter presenter;
 
@@ -50,14 +56,28 @@ public class SettingsActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         updateIntervalSpinner.setAdapter(adapter);
 
-        presenter = new SettingsPresenter();
+        presenter = new SettingsPresenter(this);
         presenter.attachView(this);
         presenter.onCreate();
 
-        saveButton.setOnClickListener(new View.OnClickListener() {
+        saveIntervalButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.setSettingsValues();
+            }
+        });
+
+        saveFavoritesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onSaveFavorites();
+            }
+        });
+
+        saveLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.saveLocationFromInput();
             }
         });
     }

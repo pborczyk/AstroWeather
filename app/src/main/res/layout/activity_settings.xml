@@ -16,45 +16,67 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/longtitude"/>
+            android:text="@string/favorites" />
 
-        <EditText
-            android:id="@+id/longtitude_input"
+        <Spinner
+            android:id="@+id/favorites_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </Spinner>
+
+        <Button
+            android:id="@+id/save_favorite_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"/>
+            android:text="@string/save" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="@string/update_interval"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/update_interval_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </Spinner>
+
+        <Button
+            android:id="@+id/save_interval_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/latitude"/>
-
-        <EditText
-            android:id="@+id/latitude_input"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="number"/>
-
-    </LinearLayout>
-
-    <Spinner
-        android:id="@+id/update_interval_spinner"
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-    </Spinner>
+        <TextView
+            android:text="@string/location_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/save_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/save"/>
+        <EditText
+            android:id="@+id/location_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/save_location_button"
+            android:text="@string/set_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
 </LinearLayout>

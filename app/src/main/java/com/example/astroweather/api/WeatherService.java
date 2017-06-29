@@ -79,7 +79,7 @@ public class WeatherService {
 
                 YahooWeather yahooWeather = retrofit.create(YahooWeather.class);
 
-                Call<WeatherData> call = yahooWeather.queryForWeather("select * from weather.forecast where woeid in " + params[0], "json", "store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
+                Call<WeatherData> call = yahooWeather.queryForWeather("select * from weather.forecast where woeid = " + params[0], "json", "store%3A%2F%2Fdatatables.org%2Falltableswithkeys");
                 try {
                     Response<WeatherData> response = call.execute();
                     if (response.isSuccessful()) {

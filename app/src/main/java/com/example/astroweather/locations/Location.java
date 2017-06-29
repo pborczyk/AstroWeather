@@ -31,4 +31,9 @@ public class Location implements Serializable {
     public void setWoeid(String woeid) {
         this.woeid = woeid;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

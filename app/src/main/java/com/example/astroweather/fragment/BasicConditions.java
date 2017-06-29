@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.astroweather.R;
+import com.example.astroweather.presenter.BasicConditionsPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,6 +41,8 @@ public class BasicConditions extends Fragment {
     @BindView(R.id.time)
     public TextView time;
 
+    private BasicConditionsPresenter presenter;
+
     public BasicConditions() {
         // Required empty public constructor
     }
@@ -51,6 +54,11 @@ public class BasicConditions extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_basic_conditions, container, false);
         ButterKnife.bind(this, view);
+
+        presenter = new BasicConditionsPresenter();
+        presenter.attachView(this);
+        presenter.onCreate();
+
         return view;
     }
 

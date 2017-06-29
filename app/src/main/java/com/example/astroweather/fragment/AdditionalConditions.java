@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.astroweather.R;
+import com.example.astroweather.presenter.AdditionalConditionsPresenter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,6 +27,8 @@ public class AdditionalConditions extends Fragment {
     @BindView(R.id.visibility)
     public TextView visibility;
 
+    private AdditionalConditionsPresenter presenter;
+
     public AdditionalConditions() {
         // Required empty public constructor
     }
@@ -37,6 +40,11 @@ public class AdditionalConditions extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_additional_conditions, container, false);
         ButterKnife.bind(this, view);
+
+        presenter = new AdditionalConditionsPresenter();
+        presenter.attachView(this);
+        presenter.onCreate();
+
         return view;
     }
 }
