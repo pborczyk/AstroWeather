@@ -12,6 +12,7 @@ import com.example.astroweather.api.WeatherService;
 import com.example.astroweather.locations.Location;
 import com.example.astroweather.locations.LocationAdapter;
 import com.example.astroweather.settings.ApplicationSettings;
+import com.example.astroweather.settings.UnitManager;
 import com.example.astroweather.settings.UpdateTimeIntervalValues;
 
 import java.io.FileOutputStream;
@@ -93,5 +94,17 @@ public class SettingsPresenter implements Presenter<SettingsActivity> {
 
     public void updateWeather() {
         ApplicationSettings.getInstance().triggerWeatherUpdate(context);
+    }
+
+    public void saveSpeedUnit() {
+        ApplicationSettings settings = ApplicationSettings.getInstance();
+        String unit = (String) view.speedUnitsSpinner.getSelectedItem();
+        settings.getUnitManager().setSpeedUnit(unit.equals("kmh") ? UnitManager.SPEED_UNIT.kmh : UnitManager.SPEED_UNIT.mph);
+    }
+
+    public void saveTempUnit() {
+        ApplicationSettings settings = ApplicationSettings.getInstance();
+        String unit = (String) view.tempUnitsSpinner.getSelectedItem();
+        settings.getUnitManager().setTempUnit(unit.equals("Farenheit") ? UnitManager.TEMP_UNIT.F : UnitManager.TEMP_UNIT.C);
     }
 }

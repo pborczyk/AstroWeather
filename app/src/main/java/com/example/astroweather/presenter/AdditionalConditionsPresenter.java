@@ -1,5 +1,6 @@
 package com.example.astroweather.presenter;
 
+import com.example.astroweather.R;
 import com.example.astroweather.api.pojo.weather.Channel;
 import com.example.astroweather.api.pojo.weather.WeatherData;
 import com.example.astroweather.fragment.AdditionalConditions;
@@ -15,13 +16,14 @@ public class AdditionalConditionsPresenter implements Presenter<AdditionalCondit
 
     @Override
     public void onCreate() {
-        WeatherData weatherData = ApplicationSettings.getInstance().getWeatherData();
+        ApplicationSettings settings = ApplicationSettings.getInstance();
+        WeatherData weatherData = settings.getWeatherData();
 
         if (weatherData != null) {
             Channel data = weatherData.query.results.channel;
             view.humidity.setText(data.atmosphere.humidity);
             view.visibility.setText(data.atmosphere.visibility);
-            view.wind.setText(data.wind.speed);
+            view.wind.setText(settings.getUnitManager().convertSpeed(data.wind.speed));
         }
     }
 

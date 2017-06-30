@@ -40,6 +40,18 @@ public class SettingsActivity extends AppCompatActivity {
     @BindView(R.id.update_button)
     public Button updateButton;
 
+    @BindView(R.id.speed_units_spinner)
+    public Spinner speedUnitsSpinner;
+
+    @BindView(R.id.temp_units_spinner)
+    public Spinner tempUnitsSpinner;
+
+    @BindView(R.id.save_speed_unit)
+    public Button saveSpeedUnit;
+
+    @BindView(R.id.save_temp_unit)
+    public Button saveTempUnit;
+
     private SettingsPresenter presenter;
 
     @Override
@@ -54,10 +66,22 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+        ArrayAdapter<CharSequence> intervalAdapter = ArrayAdapter.createFromResource(this,
                 R.array.interval_values, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        updateIntervalSpinner.setAdapter(adapter);
+        intervalAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        updateIntervalSpinner.setAdapter(intervalAdapter);
+
+        ArrayAdapter<CharSequence> speedAdapter = ArrayAdapter.createFromResource(this,
+                R.array.speed_units, android.R.layout.simple_spinner_item);
+        intervalAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        speedUnitsSpinner.setAdapter(speedAdapter);
+
+        ArrayAdapter<CharSequence> tempAdapter = ArrayAdapter.createFromResource(this,
+                R.array.temp_units, android.R.layout.simple_spinner_item);
+        intervalAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        tempUnitsSpinner.setAdapter(tempAdapter);
+
+
 
         presenter = new SettingsPresenter(this);
         presenter.attachView(this);
@@ -88,6 +112,20 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 presenter.updateWeather();
+            }
+        });
+
+        saveSpeedUnit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.saveSpeedUnit();
+            }
+        });
+
+        saveTempUnit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.saveTempUnit();
             }
         });
     }

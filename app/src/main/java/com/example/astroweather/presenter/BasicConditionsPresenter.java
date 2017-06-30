@@ -24,13 +24,14 @@ public class BasicConditionsPresenter implements Presenter<BasicConditions> {
 
     @Override
     public void onCreate() {
-        weatherData = ApplicationSettings.getInstance().getWeatherData();
+        ApplicationSettings settings = ApplicationSettings.getInstance();
+        weatherData = settings.getWeatherData();
 
         if (weatherData != null) {
             Channel data = weatherData.query.results.channel;
             view.description.setText(data.description);
             view.pressure.setText(data.atmosphere.pressure);
-            view.temperature.setText(data.item.condition.temp);
+            view.temperature.setText(settings.getUnitManager().convertTemp(data.item.condition.temp));
             view.time.setText(data.item.pubDate);
             //image to do
             view.weatherImage.setImageDrawable(context.getResources().getDrawable(getImage(data.item.condition.code)));
