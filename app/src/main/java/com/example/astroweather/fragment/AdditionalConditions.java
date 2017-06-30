@@ -47,4 +47,10 @@ public class AdditionalConditions extends Fragment {
 
         return view;
     }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        presenter.onDestroy();
+    }
 }

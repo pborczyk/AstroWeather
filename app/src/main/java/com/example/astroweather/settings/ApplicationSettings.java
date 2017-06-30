@@ -60,7 +60,7 @@ public class ApplicationSettings {
     }
 
     private WeatherService weatherService;
-    private UnitManager unitManager = new UnitManager();
+    private UnitManager unitManager = new UnitManager(this);
 
     private ApplicationSettings() {
         location = new AstroCalculator.Location(52.229676,  21.012229);
@@ -86,7 +86,7 @@ public class ApplicationSettings {
         handler.post(settingsUpdater);
     }
 
-    private void notifySubscribers() {
+    void notifySubscribers() {
         for (SettingsUpdatedCallback subscriber : subscribers) {
             subscriber.onSettingsUpdate();
         }

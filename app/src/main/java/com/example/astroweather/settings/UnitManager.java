@@ -6,6 +6,12 @@ package com.example.astroweather.settings;
 
 public class UnitManager {
 
+    private ApplicationSettings settings;
+
+    public UnitManager(ApplicationSettings settings) {
+        this.settings = settings;
+    }
+
     private TEMP_UNIT tempUnit = TEMP_UNIT.F;
     private SPEED_UNIT speedUnit = SPEED_UNIT.mph;
 
@@ -25,6 +31,7 @@ public class UnitManager {
 
     public void setTempUnit(TEMP_UNIT tempUnit) {
         this.tempUnit = tempUnit;
+        settings.notifySubscribers();
     }
 
     public SPEED_UNIT getSpeedUnit() {
@@ -33,6 +40,7 @@ public class UnitManager {
 
     public void setSpeedUnit(SPEED_UNIT speedUnit) {
         this.speedUnit = speedUnit;
+        settings.notifySubscribers();
     }
 
     public String convertTemp(String input) {

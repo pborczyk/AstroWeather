@@ -56,4 +56,10 @@ public class BasicConditions extends Fragment {
         return view;
     }
 
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        presenter.onDestroy();
+    }
+
 }

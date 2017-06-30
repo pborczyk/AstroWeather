@@ -7,12 +7,13 @@ import com.example.astroweather.api.pojo.weather.Channel;
 import com.example.astroweather.api.pojo.weather.WeatherData;
 import com.example.astroweather.fragment.BasicConditions;
 import com.example.astroweather.settings.ApplicationSettings;
+import com.example.astroweather.settings.SettingsUpdatedCallback;
 
 /**
  * Created by Piotr Borczyk on 29.06.2017.
  */
 
-public class BasicConditionsPresenter implements Presenter<BasicConditions> {
+public class BasicConditionsPresenter implements Presenter<BasicConditions>, SettingsUpdatedCallback {
 
     private BasicConditions view;
     private WeatherData weatherData;
@@ -25,6 +26,7 @@ public class BasicConditionsPresenter implements Presenter<BasicConditions> {
     @Override
     public void onCreate() {
         ApplicationSettings settings = ApplicationSettings.getInstance();
+        settings.registerForUpdates(this);
         weatherData = settings.getWeatherData();
 
         if (weatherData != null) {
@@ -80,5 +82,22 @@ public class BasicConditionsPresenter implements Presenter<BasicConditions> {
     @Override
     public void attachView(BasicConditions view) {
         this.view = view;
+    }
+
+    public void onDestroy() {
+        ApplicationSettings.getInstance().unregisterForUpdates(this);
+    }
+
+    @Override
+    public void onSettingsUpdate() {
+        if (weatherData != null) {
+            Channel data = weatherData.query.results.channel;
+            view.description.setText(data.description);
+            view.pressure.setText(data.atmosphere.pressure);
+            view.temperature.setText(ApplicationSettings.getInstance().getUnitManager().convertTemp(data.item.condition.temp));
+            view.time.setText(data.item.pubDate);
+            //image to do
+            view.weatherImage.setImageDrawable(context.getResources().getDrawable(getImage(data.item.condition.code)));
+        }
     }
 }

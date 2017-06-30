@@ -39,6 +39,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastViewHolder> {
         presenter.onCreate();
     }
 
+
     @Override
     public int getItemCount() {
         return data.size();

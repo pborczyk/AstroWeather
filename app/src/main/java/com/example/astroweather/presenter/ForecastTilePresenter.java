@@ -4,6 +4,7 @@ import com.example.astroweather.R;
 import com.example.astroweather.adapter.ForecastViewHolder;
 import com.example.astroweather.api.pojo.weather.Forecast;
 import com.example.astroweather.settings.ApplicationSettings;
+import com.example.astroweather.settings.SettingsUpdatedCallback;
 
 /**
  * Created by Piotr Borczyk on 29.06.2017.
@@ -21,6 +22,10 @@ public class ForecastTilePresenter implements Presenter<ForecastViewHolder> {
 
     @Override
     public void onCreate() {
+        setLabels();
+    }
+
+    private void setLabels() {
         view.day.setText(forecast.day);
         view.description.setText(forecast.text);
         view.maxTemp.setText(settings.getUnitManager().convertTemp(forecast.high));
